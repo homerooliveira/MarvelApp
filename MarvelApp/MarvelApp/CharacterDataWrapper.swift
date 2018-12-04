@@ -24,7 +24,7 @@ struct Character: Decodable {
     let id: Int
     let name: String
     let description: String
-    let thumbnail: Data
+    let thumbnail: Image
 }
 
 struct Image: Decodable {

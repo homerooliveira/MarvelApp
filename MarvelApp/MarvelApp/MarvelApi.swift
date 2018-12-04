@@ -22,7 +22,7 @@ extension MarvelApi {
     var path: String {
         switch self {
         case .characters:
-            return "\(MarvelApi.baseUrl)/v1/public/characters"
+            return "/v1/public/characters"
         }
     }
     
@@ -35,15 +35,8 @@ extension MarvelApi {
         return queryItems
     }
     
-    var decodableType: Decodable.Type {
-        switch self {
-        case .characters:
-            return CharacterDataWrapper.self
-        }
-    }
-    
     func makeUrl() throws -> URL {
-        var components = URLComponents(string: path)
+        var components = URLComponents(string: MarvelApi.baseUrl + path)
         components?.queryItems = queryItems
         
         guard let url = components?.url else {

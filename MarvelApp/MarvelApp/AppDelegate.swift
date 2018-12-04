@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let target = MarvelApi.characters(offset: 0)
+        MarvelApiProvider()
+            .request(for: target) { (result: Result<CharacterDataWrapper>) in
+            print(result)
+        }
         return true
     }
 

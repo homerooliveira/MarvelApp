@@ -20,7 +20,7 @@ struct MarvelConfig {
     
     static func asURLQueryitems() -> [URLQueryItem] {
         return [
-            URLQueryItem(name: "publicKey", value: MarvelConfig.publicKey),
+            URLQueryItem(name: "apikey", value: MarvelConfig.publicKey),
             URLQueryItem(name: "ts", value: MarvelConfig.time),
             URLQueryItem(name: "hash", value: MarvelConfig.hash)
         ]
