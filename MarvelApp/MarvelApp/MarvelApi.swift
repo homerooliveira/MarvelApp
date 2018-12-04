@@ -18,20 +18,21 @@ enum MarvelApi {
 
 extension MarvelApi {
     static let baseUrl = "https://gateway.marvel.com:443"
-    static let apiKey = "api_key=a814ca762d721250031db0160fa2efcf"
     
+    var path: String {
+        switch self {
+        case .characters:
+            return "\(MarvelApi.baseUrl)/v1/public/characters"
+        }
+    }
     
-    func makeUrl() throws -> URL {
-        let url: URL?
+    var queryItems: [URLQueryItem] {
+        var queryItems: [URLQueryItem] = MarvelConfig.asURLQueryitems()
         switch self {
         case .characters(let offset):
-            url = URL(string: "\(MarvelApi.baseUrl)/v1/public/characters?offset=\(offset)&\(MarvelApi.apiKey)")
+            queryItems.append(URLQueryItem(name: "offset", value: offset.description))
         }
-        
-        guard let unwrapedUrl = url else {
-            throw URLError.invalidURL
-        }
-        return unwrapedUrl
+        return queryItems
     }
     
     var decodableType: Decodable.Type {
@@ -40,4 +41,16 @@ extension MarvelApi {
             return CharacterDataWrapper.self
         }
     }
+    
+    func makeUrl() throws -> URL {
+        var components = URLComponents(string: path)
+        components?.queryItems = queryItems
+        
+        guard let url = components?.url else {
+            throw URLError.invalidURL
+        }
+        
+        return url
+    }
+    
 }

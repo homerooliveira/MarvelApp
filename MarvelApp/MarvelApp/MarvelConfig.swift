@@ -10,18 +10,19 @@ import Foundation
 import CryptoSwift
 
 struct MarvelConfig {
-    let ts: TimeInterval
-    let publicKey = MarvelConfigGenerator.publicKey
-    let hash: String
-}
-
-struct MarvelConfigGenerator {
-    static let privateKey = ""
-    static let publicKey = ""
-    
-    static func hash() -> MarvelConfig {
-        let time = Date().timeIntervalSince1970
+    static let privateKey = "bbf4935a33e5c40fe1112d56c8b318b1e0c709d4"
+    static let publicKey = "a814ca762d721250031db0160fa2efcf"
+    static let time = Date().timeIntervalSince1970.description
+    static let hash: String = {
         let hash = "\(time)\(privateKey)\(publicKey)".md5()
-        return MarvelConfig(ts: time, hash: hash)
+        return hash
+    }()
+    
+    static func asURLQueryitems() -> [URLQueryItem] {
+        return [
+            URLQueryItem(name: "publicKey", value: MarvelConfig.publicKey),
+            URLQueryItem(name: "ts", value: MarvelConfig.time),
+            URLQueryItem(name: "hash", value: MarvelConfig.hash)
+        ]
     }
 }
