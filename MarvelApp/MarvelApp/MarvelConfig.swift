@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import CryptoSwift
 
 struct MarvelConfig {
+    let ts: TimeInterval
+    let publicKey = MarvelConfigGenerator.publicKey
+    let hash: String
+}
+
+struct MarvelConfigGenerator {
     static let privateKey = ""
     static let publicKey = ""
     
-    func hash() -> String {
-        let time = DispatchTime.now()
-        return ""
+    static func hash() -> MarvelConfig {
+        let time = Date().timeIntervalSince1970
+        let hash = "\(time)\(privateKey)\(publicKey)".md5()
+        return MarvelConfig(ts: time, hash: hash)
     }
 }
