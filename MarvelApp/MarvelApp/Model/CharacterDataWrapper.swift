@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct CharacterDataWrapper: Decodable {
+struct CharacterDataWrapper: Decodable, Equatable {
     let data: CharacterDataContainer
 }
 
-struct CharacterDataContainer: Decodable {
+struct CharacterDataContainer: Decodable, Equatable {
     let offset: Int
     let limit: Int
     let total: Int
@@ -20,14 +20,14 @@ struct CharacterDataContainer: Decodable {
     let results: [Character]
 }
 
-struct Character: Decodable {
+struct Character: Decodable, Equatable {
     let id: Int
     let name: String
     let description: String
     let thumbnail: Image
 }
 
-struct Image: Decodable {
+struct Image: Decodable, Equatable {
     let path: String
     let `extension`: String
 }

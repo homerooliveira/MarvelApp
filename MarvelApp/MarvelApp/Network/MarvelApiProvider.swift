@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
-
 final class MarvelApiProvider {
     let session: URLSession
     
