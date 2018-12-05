@@ -15,12 +15,18 @@ enum ChangeState {
     case error(Error)
 }
 
+protocol ListCharactersViewModelDelegate: AnyObject {
+    func didSelected(character: Character)
+}
+
 final class ListCharactersViewModel {
     var hasMoreCharacters = true
     var isLoading = false
     var count: Int {
         return characters.count
     }
+    
+    weak var delegate: ListCharactersViewModelDelegate?
     
     private var offset = 0
     private var characters: [Character] = []
@@ -61,5 +67,10 @@ final class ListCharactersViewModel {
                 completion(.error(error))
             }
         }
+    }
+    
+    func selectCharacter(at indexPath: IndexPath) {
+        let character = self[indexPath.row].character
+        delegate?.didSelected(character: character)
     }
 }

@@ -8,14 +8,9 @@
 
 import UIKit
 
-protocol ListCharactersViewControllerDelegate: AnyObject {
-    func didSelected(character: Character)
-}
-
 final class ListCharactersViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    weak var delegate: ListCharactersViewControllerDelegate?
     let viewModel: ListCharactersViewModel
     
     var state: ChangeState = .notLoaded {
@@ -81,8 +76,7 @@ extension ListCharactersViewController: UICollectionViewDataSource {
 
 extension ListCharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let character = viewModel[indexPath.row].character
-        delegate?.didSelected(character: character)
+        viewModel.selectCharacter(at: indexPath)
     }
 }
 

@@ -28,7 +28,14 @@ final class MainCoordinator: Coordinator {
     
     func start() {
         let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider, imageLoader: imageLoader)
+        vm.delegate = self
         let vc = ListCharactersViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: false)
+    }
+}
+
+extension MainCoordinator: ListCharactersViewModelDelegate {
+    func didSelected(character: Character) {
+        print(character)
     }
 }
