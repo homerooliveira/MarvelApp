@@ -8,11 +8,22 @@
 
 import UIKit
 
-class CharacterCell: UICollectionViewCell {
+final class CharacterCell: UICollectionViewCell {
 
+    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    var viewModel: CharacterViewModel! {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    private func updateUI() {
+        nameLabel.text = viewModel.character.name
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }
