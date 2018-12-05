@@ -59,7 +59,7 @@ final class ListCharactersViewModel {
                 self.characters += dataWrapper.data.results
                 let indexPaths = (self.offset..<self.characters.count).map { IndexPath(row: $0, section: 0) }
                 let changeState: ChangeState = self.offset == 0 ? .initial : .inserted(indexPaths)
-                self.offset = dataWrapper.data.count
+                self.offset += dataWrapper.data.count
                 self.hasMoreCharacters = self.characters.count <= dataWrapper.data.total
                 self.isLoading = false
                 completion(changeState)

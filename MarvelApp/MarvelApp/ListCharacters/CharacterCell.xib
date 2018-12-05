@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="108" height="154"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-Ub-yJN">
-                        <rect key="frame" x="0.0" y="123.5" width="108" height="30.5"/>
+                        <rect key="frame" x="0.0" y="127.5" width="108" height="26.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ico-EK-tnV">
@@ -43,7 +43,7 @@
                 <constraint firstAttribute="trailing" secondItem="tdh-Ub-yJN" secondAttribute="trailing" id="Ygj-hj-p78"/>
                 <constraint firstItem="Wv1-lt-zCl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aLM-Kl-IpZ"/>
                 <constraint firstItem="ico-EK-tnV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="bOf-LP-BGC"/>
-                <constraint firstItem="tdh-Ub-yJN" firstAttribute="height" secondItem="ico-EK-tnV" secondAttribute="height" multiplier="1.5" id="tDR-sd-b71"/>
+                <constraint firstItem="tdh-Ub-yJN" firstAttribute="height" secondItem="ico-EK-tnV" secondAttribute="height" multiplier="1.3" id="tDR-sd-b71"/>
                 <constraint firstAttribute="trailing" secondItem="Wv1-lt-zCl" secondAttribute="trailing" id="vOw-xT-kRB"/>
                 <constraint firstAttribute="bottom" secondItem="Wv1-lt-zCl" secondAttribute="bottom" id="w1e-dZ-2Kd"/>
             </constraints>

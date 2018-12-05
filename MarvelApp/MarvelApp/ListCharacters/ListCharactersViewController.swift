@@ -88,3 +88,21 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.40)
     }
 }
+
+extension ListCharactersViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset
+        let height = scrollView.frame.height
+        let visibleHeight = height - scrollView.contentInset.top - scrollView.contentInset.bottom
+        let yPoint = contentOffset.y + scrollView.contentInset.top
+        let threshold = max(0.0, scrollView.contentSize.height - visibleHeight)
+        
+        guard yPoint > threshold && !viewModel.isLoading else { return }
+        viewModel.fetchCharacters { [weak self] (change) in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.state = change
+            }
+        }
+    }
+}

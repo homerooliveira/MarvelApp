@@ -31,7 +31,7 @@ final class CharacterCell: UICollectionViewCell {
         thumbImageView.clipsToBounds = true
         thumbImageView.layer.borderWidth = 1
         thumbImageView.layer.borderColor = UIColor.darkGray.cgColor
-        backgroundLabel.layer.masksToBounds = true
+        backgroundLabel.layer.cornerRadius = 6
     }
 
 }
