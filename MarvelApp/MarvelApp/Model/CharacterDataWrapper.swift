@@ -31,3 +31,9 @@ struct Image: Decodable {
     let path: String
     let `extension`: String
 }
+
+extension Image {
+    var urlString: String {
+        return path + `extension`
+    }
+}

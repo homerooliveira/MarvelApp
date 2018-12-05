@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListCharactersViewController" customModule="MarvelApp" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="Yqt-cT-VHk" id="lcI-nW-4R0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

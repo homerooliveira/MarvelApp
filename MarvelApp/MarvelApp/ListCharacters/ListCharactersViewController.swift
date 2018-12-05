@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol ListCharactersViewControllerDelegate: AnyObject {
+    func didSelected(character: Character)
+}
+
 final class ListCharactersViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var delegate: ListCharactersViewControllerDelegate?
     let viewModel: ListCharactersViewModel
     
     init(viewModel: ListCharactersViewModel) {
@@ -22,6 +29,26 @@ final class ListCharactersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
 
+}
+
+extension ListCharactersViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CharacterCell = collectionView.dequeueReusableCell(cellForItemAt: indexPath)
+        return cell
+    }
+}
+
+extension ListCharactersViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = viewModel[indexPath.row].character
+        delegate?.didSelected(character: character)
+    }
 }
