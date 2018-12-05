@@ -85,6 +85,6 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
         let padding: CGFloat =  20
         let collectionViewSize = collectionView.frame.size.width - padding
         
-        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+        return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.40)
     }
 }

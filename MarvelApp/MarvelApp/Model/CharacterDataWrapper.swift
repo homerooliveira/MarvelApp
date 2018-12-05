@@ -34,6 +34,6 @@ struct Image: Decodable {
 
 extension Image {
     var urlString: String {
-        return path + `extension`
+        return path + "." + `extension`
     }
 }

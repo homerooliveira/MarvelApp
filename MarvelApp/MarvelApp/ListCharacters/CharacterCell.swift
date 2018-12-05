@@ -17,13 +17,21 @@ final class CharacterCell: UICollectionViewCell {
             updateUI()
         }
     }
+    @IBOutlet weak var backgroundLabel: UIView!
     
     private func updateUI() {
         nameLabel.text = viewModel.character.name
+        let url = URL(string: viewModel.character.thumbnail.urlString)
+        thumbImageView.kf.setImage(with: url)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        thumbImageView.layer.cornerRadius = 6
+        thumbImageView.clipsToBounds = true
+        thumbImageView.layer.borderWidth = 1
+        thumbImageView.layer.borderColor = UIColor.darkGray.cgColor
+        backgroundLabel.layer.masksToBounds = true
     }
 
 }

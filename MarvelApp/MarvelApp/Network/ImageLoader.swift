@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Kingfisher
 
 final class ImageLoader {
-    func loadImage() {
+    
+    func loadImage(urlString: String ) {
         
     }
 }
