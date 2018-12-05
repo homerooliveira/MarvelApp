@@ -9,8 +9,10 @@
 import Foundation
 
 enum ChangeState {
+    case notLoaded
     case initial
     case inserted([IndexPath])
+    case error(Error)
 }
 
 final class ListCharactersViewModel {
@@ -35,9 +37,9 @@ final class ListCharactersViewModel {
         self.imageLoader = imageLoader
     }
     
-    func fetchCharacters(completion: @escaping (Result<ChangeState>) -> Void) {
+    func fetchCharacters(completion: @escaping (ChangeState) -> Void) {
         guard !isLoading && hasMoreCharacters else {
-            completion(.success(.inserted([])))
+            completion(.inserted([]))
             return
         }
         isLoading = true
@@ -54,9 +56,9 @@ final class ListCharactersViewModel {
                 self.offset = dataWrapper.data.count
                 self.hasMoreCharacters = self.characters.count <= dataWrapper.data.total
                 self.isLoading = false
-                completion(.success(changeState))
+                completion(changeState)
             case .failure(let error):
-                completion(.failure(error))
+                completion(.error(error))
             }
         }
     }

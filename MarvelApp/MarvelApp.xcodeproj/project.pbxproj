@@ -25,6 +25,7 @@
 		8D5B0DFD21B774380024BC8C /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B0DFB21B774380024BC8C /* CharacterCell.swift */; };
 		8D5B0DFE21B774380024BC8C /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B0DFC21B774380024BC8C /* CharacterCell.xib */; };
 		8D5B0E0021B7745B0024BC8C /* CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B0DFF21B7745B0024BC8C /* CollectionViewExtensions.swift */; };
+		8D5B0E0221B77A200024BC8C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B0E0121B77A200024BC8C /* MainCoordinator.swift */; };
 		F15FA3A08E85546E03C0B48B /* Pods_MarvelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD10471756F4072B48D15478 /* Pods_MarvelApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		8D5B0DFB21B774380024BC8C /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		8D5B0DFC21B774380024BC8C /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 		8D5B0DFF21B7745B0024BC8C /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
+		8D5B0E0121B77A200024BC8C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		96B1A6D31011B2CE1E2DC860 /* Pods_MarvelAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD10471756F4072B48D15478 /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				8D29394C21B6A1320072D6CB /* Assets.xcassets */,
 				8D29394E21B6A1320072D6CB /* LaunchScreen.storyboard */,
 				8D5B0DFF21B7745B0024BC8C /* CollectionViewExtensions.swift */,
+				8D5B0E0121B77A200024BC8C /* MainCoordinator.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D29396621B6A1BE0072D6CB /* MarvelApi.swift in Sources */,
+				8D5B0E0221B77A200024BC8C /* MainCoordinator.swift in Sources */,
 				8D5B0E0021B7745B0024BC8C /* CollectionViewExtensions.swift in Sources */,
 				8D29396821B6DEC90072D6CB /* CharacterDataWrapper.swift in Sources */,
 				8D5B0DE521B717610024BC8C /* MarvelApiProvider.swift in Sources */,
