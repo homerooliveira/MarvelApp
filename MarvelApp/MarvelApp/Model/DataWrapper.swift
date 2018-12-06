@@ -8,17 +8,23 @@
 
 import Foundation
 
-struct DataWrapper: Decodable, Equatable {
-    let data: CharacterDataContainer
+struct DataWrapper<T> {
+    let data: DataContainer<T>
 }
 
-struct CharacterDataContainer: Decodable, Equatable {
+extension DataWrapper: Decodable where T: Decodable {}
+extension DataWrapper: Equatable where T: Equatable {}
+
+struct DataContainer<T> {
     let offset: Int
     let limit: Int
     let total: Int
     let count: Int
-    let results: [Character]
+    let results: [T]
 }
+
+extension DataContainer: Decodable where T: Decodable {}
+extension DataContainer: Equatable where T: Equatable {}
 
 struct Character: Decodable, Equatable {
     let id: Int

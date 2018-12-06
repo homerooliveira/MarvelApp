@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class MarvelApiProvider {
+final class MarvelApiProvider: MarvelApiProviderType {
     let session: URLSession
     
     init(session: URLSession = .shared) {

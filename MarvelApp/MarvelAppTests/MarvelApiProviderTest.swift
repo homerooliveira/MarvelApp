@@ -21,8 +21,8 @@ final class MarvelApiProviderTest: XCTestCase {
     func testFecthOfCharacters() throws {
         let image = Image(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", extension: "jpg")
         let characters = [MarvelApp.Character(id: 1011334, name: "3-D Man", description: "", thumbnail: image)]
-        let data = CharacterDataContainer(offset: 0, limit: 1, total: 1491, count: 1, results: characters)
-        let expectedValue = CharacterDataWrapper(data: data)
+        let data = DataContainer(offset: 0, limit: 1, total: 1491, count: 1, results: characters)
+        let expectedValue = DataWrapper(data: data)
         
         let target = MarvelApi.characters(offset: 0)
         
@@ -35,7 +35,7 @@ final class MarvelApiProviderTest: XCTestCase {
         
         let expectation = XCTestExpectation(description: "fetch characters")
         
-        marvelApiProvider.request(for: target) { (result: Result<CharacterDataWrapper>) in
+        marvelApiProvider.request(for: target) { (result: Result<DataWrapper<MarvelApp.Character>>) in
             XCTAssertEqual(expectedValue, result.value)
             expectation.fulfill()
         }

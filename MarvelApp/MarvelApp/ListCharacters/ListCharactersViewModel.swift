@@ -35,14 +35,14 @@ final class ListCharactersViewModel {
     private var offset = 0
     private var characters: [Character] = []
     
-    let marvelApiProvider: MarvelApiProvider
+    let marvelApiProvider: MarvelApiProviderType
     let imageLoader: ImageLoader
     
     subscript(_ index: Int) -> CharacterViewModel {
         return CharacterViewModel(character: characters[index], imageLoader: imageLoader)
     }
     
-    init(marvelApiProvider: MarvelApiProvider, imageLoader: ImageLoader) {
+    init(marvelApiProvider: MarvelApiProviderType, imageLoader: ImageLoader) {
         self.marvelApiProvider = marvelApiProvider
         self.imageLoader = imageLoader
     }
@@ -56,7 +56,7 @@ final class ListCharactersViewModel {
         
         let endpoint = MarvelApi.characters(offset: offset)
         
-        marvelApiProvider.request(for: endpoint) { [weak self] (result: Result<CharacterDataWrapper>) in
+        marvelApiProvider.request(for: endpoint) { [weak self] (result: Result<DataWrapper<Character>>) in
             guard let self = self else { return }
             switch result {
             case .success(let dataWrapper):

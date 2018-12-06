@@ -18,7 +18,7 @@ protocol Coordinator {
 final class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    let marvelApiProvider: MarvelApiProvider = MarvelApiProvider()
+    let marvelApiProvider: MarvelApiProviderType = MarvelApiProvider()
     let imageLoader: ImageLoader = ImageLoader()
     
     init(navigationController: UINavigationController) {
