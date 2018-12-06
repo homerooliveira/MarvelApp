@@ -30,6 +30,8 @@
 		8D5B5BEC21B7FF5500D32D78 /* MarvelApiProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B5BEB21B7FF5500D32D78 /* MarvelApiProviderTest.swift */; };
 		8D5B5BEE21B7FFD300D32D78 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B5BED21B7FFD300D32D78 /* MockURLProtocol.swift */; };
 		8D5B5BF021B803DA00D32D78 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B5BEF21B803DA00D32D78 /* Result.swift */; };
+		8D5B5BF221B8943B00D32D78 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B5BF121B8943B00D32D78 /* XCTestCase.swift */; };
+		8D5B5BF421B8982B00D32D78 /* ListCharactersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B5BF321B8982B00D32D78 /* ListCharactersViewModelTest.swift */; };
 		F15FA3A08E85546E03C0B48B /* Pods_MarvelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD10471756F4072B48D15478 /* Pods_MarvelApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		8D5B5BEB21B7FF5500D32D78 /* MarvelApiProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiProviderTest.swift; sourceTree = "<group>"; };
 		8D5B5BED21B7FFD300D32D78 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		8D5B5BEF21B803DA00D32D78 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		8D5B5BF121B8943B00D32D78 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		8D5B5BF321B8982B00D32D78 /* ListCharactersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewModelTest.swift; sourceTree = "<group>"; };
 		96B1A6D31011B2CE1E2DC860 /* Pods_MarvelAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD10471756F4072B48D15478 /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +163,8 @@
 				8D29396921B6E08F0072D6CB /* MarvelApiTest.swift */,
 				8D5B5BEB21B7FF5500D32D78 /* MarvelApiProviderTest.swift */,
 				8D5B5BED21B7FFD300D32D78 /* MockURLProtocol.swift */,
+				8D5B5BF121B8943B00D32D78 /* XCTestCase.swift */,
+				8D5B5BF321B8982B00D32D78 /* ListCharactersViewModelTest.swift */,
 			);
 			path = MarvelAppTests;
 			sourceTree = "<group>";
@@ -405,9 +411,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D5B5BF221B8943B00D32D78 /* XCTestCase.swift in Sources */,
 				8D29395B21B6A1320072D6CB /* MarvelAppTests.swift in Sources */,
 				8D5B5BEC21B7FF5500D32D78 /* MarvelApiProviderTest.swift in Sources */,
 				8D29396A21B6E08F0072D6CB /* MarvelApiTest.swift in Sources */,
+				8D5B5BF421B8982B00D32D78 /* ListCharactersViewModelTest.swift in Sources */,
 				8D5B5BEE21B7FFD300D32D78 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,15 @@
 
 import Foundation
 
-enum ChangeState {
+struct LoadingError: Error, Equatable {
+    let message: String
+}
+
+enum ChangeState: Equatable {
     case notLoaded
     case initial
     case inserted([IndexPath])
-    case error(Error)
+    case error(LoadingError)
 }
 
 protocol ListCharactersViewModelDelegate: AnyObject {
@@ -64,7 +68,7 @@ final class ListCharactersViewModel {
                 self.isLoading = false
                 completion(changeState)
             case .failure(let error):
-                completion(.error(error))
+                completion(.error(LoadingError(message: error.localizedDescription)))
             }
         }
     }

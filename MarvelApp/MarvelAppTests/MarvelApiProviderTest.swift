@@ -14,10 +14,7 @@ final class MarvelApiProviderTest: XCTestCase {
     var marvelApiProvider: MarvelApiProvider!
     
     override func setUp() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [MockURLProtocol.self]
-        let urlSession = URLSession(configuration: configuration)
-
+        let urlSession = mockSession()
         marvelApiProvider = MarvelApiProvider(session: urlSession)
     }
     
@@ -29,9 +26,7 @@ final class MarvelApiProviderTest: XCTestCase {
         
         let target = MarvelApi.characters(offset: 0)
         
-        let bundle = Bundle(for: type(of: self))
-        let url = bundle.url(forResource: "firstPage", withExtension: "json")!
-        let mockJSONData = try Data(contentsOf: url)
+        let mockJSONData = try loadFile(forResource: "firstPage", withExtension: "json")
         
         MockURLProtocol.requestHandler = { request in
             XCTAssertEqual(request.url?.query?.contains("offset=0"), true)
