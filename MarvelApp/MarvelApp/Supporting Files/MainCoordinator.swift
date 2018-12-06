@@ -42,8 +42,10 @@ final class MainCoordinator: Coordinator {
 
 extension MainCoordinator: ListCharactersViewModelDelegate {
     func didSelected(character: Character) {
-        print(character)
-        let viewController = CharacterDetailViewController()
-        navigationController.pushViewController(viewController, animated: true)
+
+        let vm = CharacterDetailViewModel(character: character,
+                                          marvelApiProvider: marvelApiProvider)
+        let vc = CharacterDetailViewController(viewModel: vm)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

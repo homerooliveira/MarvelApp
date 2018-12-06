@@ -12,6 +12,18 @@ final class CharacterDetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let viewModel: CharacterDetailViewModel
+    
+    init(viewModel: CharacterDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        title = viewModel.name
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,11 +60,14 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let supplementaryView = collectionView.dequeueReusableSupplementaryView(
+            guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
                 withReuseIdentifier: "header",
-                    for: indexPath)
+                for: indexPath) as? HeaderComicReusableView else {
+                return UICollectionReusableView()
+            }
             supplementaryView.backgroundColor = .red
+            supplementaryView.nameLabel.text = viewModel.description
             return supplementaryView
         default:
             return UICollectionReusableView()
@@ -62,9 +77,7 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let collectionViewSize = collectionView.frame.size
         
-       let text = "Lorem"
-        
-        let height = NSString(string: text).boundingRect(
+        let height = NSString(string: viewModel.description).boundingRect(
             with: CGSize(width: 300, height: Double.infinity),
             options: [.usesFontLeading, .usesLineFragmentOrigin],
             attributes: [.font : UIFont.systemFont(ofSize: 17)],
