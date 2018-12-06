@@ -19,6 +19,9 @@ final class ListCharactersViewController: UIViewController {
         }
     }
     
+    let footerIdentifier = "footer"
+    let footerKind = UICollectionView.elementKindSectionFooter
+    
     init(viewModel: ListCharactersViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -34,6 +37,7 @@ final class ListCharactersViewController: UIViewController {
         
         setupCollectionView()
         
+        state = .loading
         viewModel.fetchCharacters { [weak self] (result) in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -46,16 +50,22 @@ final class ListCharactersViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(of: CharacterCell.self)
+        collectionView.register(UICollectionReusableView.self,
+                                forSupplementaryViewOfKind: footerKind,
+                                withReuseIdentifier: footerIdentifier)
     }
 
     private func updateUI(_ state: ChangeState) {
         switch state {
         case .initial:
+            view.unlock()
             collectionView.reloadData()
         case .inserted(let indexPaths):
             collectionView.insertItems(at: indexPaths)
         case .error(let error):
             print(error)
+        case .loading:
+            view.lock()
         default:
             break
         }
@@ -72,6 +82,18 @@ extension ListCharactersViewController: UICollectionViewDataSource {
         cell.viewModel = viewModel[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case footerKind:
+            let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: footerKind,
+                                                            withReuseIdentifier: footerIdentifier,
+                                                            for: indexPath)
+            return supplementaryView
+        default:
+            return UICollectionReusableView()
+        }
+    }
 }
 
 extension ListCharactersViewController: UICollectionViewDelegate {
@@ -85,7 +107,7 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
         let padding: CGFloat =  20
         let collectionViewSize = collectionView.frame.size.width - padding - 10
         
-        return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.35)
+        return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.30)
     }
 }
 

@@ -14,6 +14,7 @@ struct LoadingError: Error, Equatable {
 
 enum ChangeState: Equatable {
     case notLoaded
+    case loading
     case initial
     case inserted([IndexPath])
     case error(LoadingError)
