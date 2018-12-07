@@ -106,20 +106,18 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  30
         let collectionViewSize = collectionView.frame.size.width - padding
+        let percentageOfWidth: CGFloat = 0.50
+        let percentageOfHeight: CGFloat = 0.35
+
         
-        return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.30)
+        return CGSize(width: collectionViewSize * percentageOfWidth,
+                      height: collectionView.frame.height * percentageOfHeight)
     }
 }
 
 extension ListCharactersViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffset = scrollView.contentOffset
-        let height = scrollView.frame.height
-        let visibleHeight = height - scrollView.contentInset.top - scrollView.contentInset.bottom
-        let yPoint = contentOffset.y + scrollView.contentInset.top
-        let threshold = max(0.0, scrollView.contentSize.height - visibleHeight)
-        
-        guard yPoint > threshold && !viewModel.isLoading else { return }
+        guard scrollView.hasReachBottom && !viewModel.isLoading else { return }
         viewModel.fetchCharacters { [weak self] (change) in
             guard let self = self else { return }
             DispatchQueue.main.async {

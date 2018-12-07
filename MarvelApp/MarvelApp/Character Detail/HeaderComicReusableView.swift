@@ -16,8 +16,8 @@ final class HeaderComicReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        thumbImageView.layer.cornerRadius = 6
         thumbImageView.clipsToBounds = true
+        thumbImageView.layer.cornerRadius = 6
     }
     
 }

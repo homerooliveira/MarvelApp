@@ -75,21 +75,22 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let collectionViewSize = collectionView.frame.size
-        let width = collectionViewSize.width
+        let width = collectionViewSize.width * 0.8533333333
+        let font = UIFont.systemFont(ofSize: 17)
+        let deafultHeight: CGFloat = 200
         
-        let height = NSString(string: viewModel.description).boundingRect(
-            with: CGSize(width: width * 0.8533333333, height: CGFloat.infinity),
-            options: [.usesFontLeading, .usesLineFragmentOrigin],
-            attributes: [.font : UIFont.systemFont(ofSize: 17)],
-            context: nil).height
+        let calculedHeight = viewModel.description.calculateHeight(width: width, font: font)
         
-        return CGSize(width: width, height: 200 + height)
+        return CGSize(width: width, height: deafultHeight + calculedHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat =  20
-        let collectionViewSize = collectionView.frame.size.width - padding - 10
+        let padding: CGFloat =  30
+        let collectionViewSize = collectionView.frame.size.width - padding
+        let percentageOfWidth: CGFloat = 0.50
+        let percentageOfHeight: CGFloat = 0.35
         
-        return CGSize(width: collectionViewSize/2, height: collectionView.frame.height * 0.20)
+        return CGSize(width: collectionViewSize * percentageOfWidth,
+                      height: collectionView.frame.height * percentageOfHeight)
     }
 }

@@ -33,7 +33,7 @@ final class ListCharactersViewModel {
     
     weak var delegate: ListCharactersViewModelDelegate?
     
-    private var offset = 0
+    var offset = 0
     private var characters: [Character] = []
     
     let marvelApiProvider: MarvelApiProviderType
