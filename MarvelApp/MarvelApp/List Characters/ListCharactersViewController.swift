@@ -117,10 +117,14 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
 
 extension ListCharactersViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.hasReachBottom && !viewModel.isLoading else { return }
-        viewModel.fetchCharacters { [weak self] (change) in
+        guard scrollView.hasReachBottom && !viewModel.isLoading && viewModel.hasMoreCharacters else { return }
+        let indexPath = IndexPath(item: 0, section: 0)
+        let footer = collectionView.supplementaryView(forElementKind: footerKind, at: indexPath)
+        footer?.lock()
+        viewModel.fetchCharacters { [weak self, footer] (change) in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                footer?.unlock()
                 self.state = change
             }
         }
