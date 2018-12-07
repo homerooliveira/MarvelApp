@@ -30,6 +30,7 @@ final class MainCoordinator: Coordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.barStyle = .blackTranslucent
+        navigationController.navigationBar.tintColor = .white
     }
     
     func start() {

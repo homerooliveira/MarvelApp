@@ -29,8 +29,6 @@ final class CharacterCell: UICollectionViewCell {
         super.awakeFromNib()
         thumbImageView.layer.cornerRadius = 6
         thumbImageView.clipsToBounds = true
-        thumbImageView.layer.borderWidth = 1
-        thumbImageView.layer.borderColor = #colorLiteral(red: 0.8500000238, green: 0.8500000238, blue: 0.8500000238, alpha: 1).cgColor
         backgroundLabel.layer.cornerRadius = 6
     }
 

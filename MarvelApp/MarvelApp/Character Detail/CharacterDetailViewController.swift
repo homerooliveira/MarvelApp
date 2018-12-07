@@ -66,7 +66,6 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
                 for: indexPath) as? HeaderComicReusableView else {
                 return UICollectionReusableView()
             }
-            supplementaryView.backgroundColor = .red
             supplementaryView.nameLabel.text = viewModel.description
             return supplementaryView
         default:
@@ -76,14 +75,15 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let collectionViewSize = collectionView.frame.size
+        let width = collectionViewSize.width
         
         let height = NSString(string: viewModel.description).boundingRect(
-            with: CGSize(width: 300, height: Double.infinity),
+            with: CGSize(width: width * 0.8533333333, height: CGFloat.infinity),
             options: [.usesFontLeading, .usesLineFragmentOrigin],
             attributes: [.font : UIFont.systemFont(ofSize: 17)],
             context: nil).height
         
-        return CGSize(width: collectionViewSize.width, height: 142 + height)
+        return CGSize(width: width, height: 200 + height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
