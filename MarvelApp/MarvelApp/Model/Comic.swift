@@ -9,6 +9,6 @@
 import Foundation
 
 struct Comic {
-    let id: String
+    let id: Int
     let thumbnail: Image
 }
