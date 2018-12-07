@@ -38,4 +38,48 @@ final class ListCharactersViewModelTest: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    func testAcessingCharacterViewModel() throws {
+        let urlSession = mockSession()
+        let marvelApiProvider = MarvelApiProvider(session: urlSession)
+        
+        let image = Image(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", extension: "jpg")
+        let character = Character(id: 1011334, name: "3-D Man", description: "", thumbnail: image)
+        
+        let paginator: Paginator<MarvelApp.Character> = Paginator()
+        paginator.results = [character]
+        
+        viewModel = ListCharactersViewModel(marvelApiProvider: marvelApiProvider,
+                                            paginator: paginator)
+        
+        XCTAssertEqual(self.viewModel[0].character, character)
+    }
+    
+    func testDidSelectedCharacter() {
+        let urlSession = mockSession()
+        let marvelApiProvider = MarvelApiProvider(session: urlSession)
+        
+        let image = Image(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", extension: "jpg")
+        let expectedCharacter = Character(id: 1011334, name: "3-D Man", description: "", thumbnail: image)
+        
+        let paginator: Paginator<MarvelApp.Character> = Paginator()
+        paginator.results = [expectedCharacter]
+        
+        viewModel = ListCharactersViewModel(marvelApiProvider: marvelApiProvider,
+                                            paginator: paginator)
+        
+        let expectation = XCTestExpectation(description: "didSelectedCharacter")
+        
+        let mockDelegate = MockListCharacterViewModelDelegate()
+        viewModel.delegate = mockDelegate
+        
+        mockDelegate.didSelectedCharacter = { character in
+            XCTAssertEqual(character, expectedCharacter)
+            expectation.fulfill()
+        }
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        viewModel.selectCharacter(at: indexPath)
+        
+        wait(for: [expectation], timeout: 1)
+    }
 }
