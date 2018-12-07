@@ -14,6 +14,7 @@ enum URLError: Error {
 
 enum MarvelApi {
     case characters(offset: Int)
+    case comics(characterId: Int, offset: Int)
 }
 
 extension MarvelApi {
@@ -23,13 +24,15 @@ extension MarvelApi {
         switch self {
         case .characters:
             return "/v1/public/characters"
+        case .comics(let characterId, _):
+            return "/v1/public/characters/\(characterId)/comics"
         }
     }
     
     var queryItems: [URLQueryItem] {
         var queryItems: [URLQueryItem] = MarvelConfig.asURLQueryitems()
         switch self {
-        case .characters(let offset):
+        case .characters(let offset), .comics(_, let offset):
             queryItems.append(URLQueryItem(name: "offset", value: offset.description))
         }
         return queryItems

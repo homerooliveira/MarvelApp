@@ -19,7 +19,6 @@ final class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     let marvelApiProvider: MarvelApiProviderType = MarvelApiProvider()
-    let imageLoader: ImageLoader = ImageLoader()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,10 +29,11 @@ final class MainCoordinator: Coordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.barStyle = .blackTranslucent
+        navigationController.navigationBar.tintColor = .white
     }
     
     func start() {
-        let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider, imageLoader: imageLoader)
+        let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider)
         vm.delegate = self
         let vc = ListCharactersViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: false)
@@ -42,6 +42,10 @@ final class MainCoordinator: Coordinator {
 
 extension MainCoordinator: ListCharactersViewModelDelegate {
     func didSelected(character: Character) {
-        print(character)
+
+        let vm = CharacterDetailViewModel(character: character,
+                                          marvelApiProvider: marvelApiProvider)
+        let vc = CharacterDetailViewController(viewModel: vm)
+        navigationController.pushViewController(vc, animated: true)
     }
 }
