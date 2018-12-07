@@ -23,7 +23,7 @@ final class MarvelApiProviderTest: XCTestCase {
         
         let target = MarvelApi.characters(offset: 0)
         
-        let mockJSONData = try loadFile(forResource: "firstPage", withExtension: "json")
+        let mockJSONData = try loadFile(forResource: "characters", withExtension: "json")
         
         MockURLProtocol.requestHandler = { request in
             XCTAssertEqual(request.url?.query?.contains("offset=0"), true)

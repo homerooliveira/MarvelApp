@@ -66,14 +66,11 @@ final class CharacterDetailViewController: UIViewController {
     private func updateUI(_ state: ChangeState) {
         switch state {
         case .initial:
-            view.unlock()
             collectionView.reloadData()
         case .inserted(let indexPaths):
             collectionView.insertItems(at: indexPaths)
         case .error(let error):
             print(error)
-        case .loading:
-            view.lock()
         default:
             break
         }

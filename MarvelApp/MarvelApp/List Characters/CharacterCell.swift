@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class CharacterCell: UICollectionViewCell {
 
@@ -22,8 +21,8 @@ final class CharacterCell: UICollectionViewCell {
     
     private func updateUI() {
         nameLabel.text = viewModel.character.name
-        let url = URL(string: viewModel.character.thumbnail.urlString)
-        thumbImageView.kf.setImage(with: url)
+        let image = viewModel.character.thumbnail
+        thumbImageView.load(image: image)
     }
     
     override func awakeFromNib() {

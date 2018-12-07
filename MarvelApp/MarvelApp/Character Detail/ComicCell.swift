@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class ComicCell: UICollectionViewCell {
     @IBOutlet weak var comicImageView: UIImageView!
@@ -26,7 +25,6 @@ final class ComicCell: UICollectionViewCell {
 
     
     private func updateUI() {
-        let url = URL(string: viewModel.comic.thumbnail.urlString)
-        comicImageView.kf.setImage(with: url)
+        comicImageView.load(image: viewModel.comic.thumbnail)
     }
 }

@@ -21,7 +21,7 @@ final class ListCharactersViewModelTest: XCTestCase {
     }
 
     func testInitialFetch() throws {
-        let mockJSONData = try loadFile(forResource: "firstPage", withExtension: "json")
+        let mockJSONData = try loadFile(forResource: "characters", withExtension: "json")
         MockURLProtocol.requestHandler = { (request) in
             XCTAssertEqual(request.url?.query?.contains("offset=0"), true)
             return (HTTPURLResponse(), mockJSONData)
