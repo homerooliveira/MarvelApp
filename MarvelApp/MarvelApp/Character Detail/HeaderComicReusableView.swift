@@ -14,10 +14,22 @@ final class HeaderComicReusableView: UICollectionReusableView {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    var viewModel: CharacterDetailViewModel! {
+        didSet {
+            updateUI()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbImageView.clipsToBounds = true
         thumbImageView.layer.cornerRadius = 6
+    }
+    
+    private func updateUI() {
+        nameLabel.text = viewModel.description
+        let url = URL(string: viewModel.thumbnail.urlString)
+        thumbImageView.kf.setImage(with: url)
     }
     
 }

@@ -14,6 +14,11 @@ final class CharacterDetailViewController: UIViewController {
     
     let viewModel: CharacterDetailViewModel
     
+    let headerIdentifier = "header"
+    let headerKind = UICollectionView.elementKindSectionHeader
+    let footerIdentifier = "footer"
+    let footerKind = UICollectionView.elementKindSectionFooter
+    
     init(viewModel: CharacterDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -61,12 +66,12 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: "header",
+                ofKind: headerKind,
+                withReuseIdentifier: headerIdentifier,
                 for: indexPath) as? HeaderComicReusableView else {
                 return UICollectionReusableView()
             }
-            supplementaryView.nameLabel.text = viewModel.description
+            supplementaryView.viewModel = viewModel
             return supplementaryView
         default:
             return UICollectionReusableView()

@@ -23,6 +23,10 @@ final class CharacterDetailViewModel {
         }
     }
     
+    var thumbnail: Image {
+        return character.thumbnail
+    }
+    
     let marvelApiProvider: MarvelApiProviderType
     
     init(character: Character, marvelApiProvider: MarvelApiProviderType) {
