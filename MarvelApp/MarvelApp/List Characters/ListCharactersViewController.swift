@@ -117,7 +117,7 @@ extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
 
 extension ListCharactersViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.hasReachBottom && !viewModel.isLoading && viewModel.hasMoreCharacters else { return }
+        guard scrollView.hasReachBottom && !viewModel.isLoading && viewModel.hasMore else { return }
         let indexPath = IndexPath(item: 0, section: 0)
         let footer = collectionView.supplementaryView(forElementKind: footerKind, at: indexPath)
         footer?.lock()

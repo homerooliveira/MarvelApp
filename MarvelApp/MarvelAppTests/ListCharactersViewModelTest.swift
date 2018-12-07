@@ -16,9 +16,8 @@ final class ListCharactersViewModelTest: XCTestCase {
     override func setUp() {
         let urlSession = mockSession()
         let marvelApiProvider = MarvelApiProvider(session: urlSession)
-        let imageProvider = ImageLoader()
         
-        viewModel = ListCharactersViewModel(marvelApiProvider: marvelApiProvider, imageLoader: imageProvider)
+        viewModel = ListCharactersViewModel(marvelApiProvider: marvelApiProvider)
     }
 
     func testInitialFetch() throws {

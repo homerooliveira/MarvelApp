@@ -1,5 +1,6 @@
+
 //
-//  Comic.swift
+//  ComicViewModel.swift
 //  MarvelApp
 //
 //  Created by Homero Oliveira on 07/12/18.
@@ -8,7 +9,10 @@
 
 import Foundation
 
-struct Comic: Decodable {
-    let id: Int
-    let thumbnail: Image
+final class ComicViewModel {
+    let comic: Comic
+    
+    init(comic: Comic) {
+        self.comic = comic
+    }
 }

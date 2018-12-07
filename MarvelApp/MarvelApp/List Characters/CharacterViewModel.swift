@@ -11,10 +11,8 @@ import Foundation
 final class CharacterViewModel {
     
     let character: Character
-    let imageLoader: ImageLoader
     
-    init(character: Character, imageLoader: ImageLoader) {
+    init(character: Character) {
         self.character = character
-        self.imageLoader = imageLoader
     }
 }

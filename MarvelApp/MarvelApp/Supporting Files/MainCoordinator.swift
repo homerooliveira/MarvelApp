@@ -19,7 +19,6 @@ final class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     let marvelApiProvider: MarvelApiProviderType = MarvelApiProvider()
-    let imageLoader: ImageLoader = ImageLoader()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -34,7 +33,7 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider, imageLoader: imageLoader)
+        let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider)
         vm.delegate = self
         let vc = ListCharactersViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: false)
