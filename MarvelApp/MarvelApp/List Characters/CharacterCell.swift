@@ -21,16 +21,14 @@ final class CharacterCell: UICollectionViewCell {
     
     private func updateUI() {
         nameLabel.text = viewModel.character.name
-        let url = URL(string: viewModel.character.thumbnail.urlString)
-        thumbImageView.kf.setImage(with: url)
+        let image = viewModel.character.thumbnail
+        thumbImageView.load(image: image)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbImageView.layer.cornerRadius = 6
         thumbImageView.clipsToBounds = true
-        thumbImageView.layer.borderWidth = 1
-        thumbImageView.layer.borderColor = #colorLiteral(red: 0.8500000238, green: 0.8500000238, blue: 0.8500000238, alpha: 1).cgColor
         backgroundLabel.layer.cornerRadius = 6
     }
 

@@ -22,4 +22,13 @@ extension Result {
             return nil
         }
     }
+    
+    var error: Error? {
+        switch self {
+        case .success:
+            return nil
+        case .failure(let error):
+            return error
+        }
+    }
 }

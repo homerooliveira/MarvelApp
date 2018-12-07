@@ -8,52 +8,45 @@
 
 import Foundation
 
-struct LoadingError: Error, Equatable {
-    let message: String
-}
-
-enum ChangeState: Equatable {
-    case notLoaded
-    case loading
-    case initial
-    case inserted([IndexPath])
-    case error(LoadingError)
-}
-
 protocol ListCharactersViewModelDelegate: AnyObject {
     func didSelected(character: Character)
 }
 
 final class ListCharactersViewModel {
-    var hasMoreCharacters = true
-    var isLoading = false
     var count: Int {
-        return characters.count
+        return paginator.results.count
+    }
+    var offset: Int {
+        return paginator.offset
+    }
+    var hasMore: Bool {
+        return paginator.hasMore
+    }
+    var isLoading: Bool {
+        return paginator.isLoading
     }
     
     weak var delegate: ListCharactersViewModelDelegate?
     
-    private var offset = 0
-    private var characters: [Character] = []
-    
     let marvelApiProvider: MarvelApiProviderType
-    let imageLoader: ImageLoader
+    let paginator: Paginator<Character>
     
     subscript(_ index: Int) -> CharacterViewModel {
-        return CharacterViewModel(character: characters[index], imageLoader: imageLoader)
+        return CharacterViewModel(character: paginator.results[index])
     }
     
-    init(marvelApiProvider: MarvelApiProviderType, imageLoader: ImageLoader) {
+    init(marvelApiProvider: MarvelApiProviderType,
+         paginator: Paginator<Character> = Paginator()) {
         self.marvelApiProvider = marvelApiProvider
-        self.imageLoader = imageLoader
+        self.paginator = paginator
     }
     
     func fetchCharacters(completion: @escaping (ChangeState) -> Void) {
-        guard !isLoading && hasMoreCharacters else {
+        guard !isLoading && hasMore else {
             completion(.inserted([]))
             return
         }
-        isLoading = true
+        self.paginator.isLoading = true
         
         let endpoint = MarvelApi.characters(offset: offset)
         
@@ -61,12 +54,7 @@ final class ListCharactersViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let dataWrapper):
-                self.characters += dataWrapper.data.results
-                let indexPaths = (self.offset..<self.characters.count).map { IndexPath(row: $0, section: 0) }
-                let changeState: ChangeState = self.offset == 0 ? .initial : .inserted(indexPaths)
-                self.offset += dataWrapper.data.count
-                self.hasMoreCharacters = self.characters.count <= dataWrapper.data.total
-                self.isLoading = false
+                let changeState = self.paginator.paginate(dataWrapper: dataWrapper)
                 completion(changeState)
             case .failure(let error):
                 completion(.error(LoadingError(message: error.localizedDescription)))
