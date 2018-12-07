@@ -12,6 +12,10 @@ import Kingfisher
 extension UIImageView {
     func load(image: Image) {
         let url = URL(string: image.urlString)
-        kf.setImage(with: url)
+        lock()
+        kf.setImage(with: url, completionHandler: { [weak self] (_, _, _, _) in
+            guard let self = self else { return }
+            self.unlock()
+        })
     }
 }
