@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comic: Decodable {
+struct Comic: Decodable, Equatable {
     let id: Int
     let thumbnail: Image
 }
