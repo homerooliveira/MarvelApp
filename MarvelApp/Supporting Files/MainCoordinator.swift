@@ -10,22 +10,30 @@ import UIKit
 
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
-    var navigationController: UINavigationController { get set }
+    var navigationController: Navigator { get set }
     
     func start()
 }
 
+protocol Navigator {
+    func pushViewController(_ viewController: UIViewController, animated: Bool)
+}
+
+extension UINavigationController: Navigator {}
+
 final class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
-    var navigationController: UINavigationController
+    var navigationController: Navigator
     let marvelApiProvider: MarvelApiProviderType = MarvelApiProvider()
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: Navigator) {
         self.navigationController = navigationController
-        setupNavigationController(navigationController)
+        setupNavigationController()
     }
     
-    private func setupNavigationController(_ navigationController: UINavigationController) {
+    private func setupNavigationController() {
+        guard let navigationController = navigationController as? UINavigationController else { return }
+            
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.barStyle = .blackTranslucent

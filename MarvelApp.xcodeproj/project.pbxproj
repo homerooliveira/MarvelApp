@@ -47,6 +47,8 @@
 		8D72E65121BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E65021BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift */; };
 		8D72E65321BAA37700627E5F /* comics.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D72E65221BAA37600627E5F /* comics.json */; };
 		8D72E65521BAA3D900627E5F /* CharacterDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E65421BAA3D900627E5F /* CharacterDetailViewModelTest.swift */; };
+		8D8EE8DB21E9421500DF95FF /* MainCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE8DA21E9421500DF95FF /* MainCoordinatorTest.swift */; };
+		8D8EE8DD21E9422400DF95FF /* MockNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE8DC21E9422400DF95FF /* MockNavigator.swift */; };
 		8DFA30AD21BA30F4005DD7ED /* UIScrollView+reachBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30AC21BA30F4005DD7ED /* UIScrollView+reachBottom.swift */; };
 		8DFA30AF21BA372D005DD7ED /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30AE21BA372D005DD7ED /* Character.swift */; };
 		8DFA30B121BA3741005DD7ED /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30B021BA3741005DD7ED /* Image.swift */; };
@@ -112,6 +114,8 @@
 		8D72E65021BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListCharacterViewModelDelegate.swift; sourceTree = "<group>"; };
 		8D72E65221BAA37600627E5F /* comics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comics.json; sourceTree = "<group>"; };
 		8D72E65421BAA3D900627E5F /* CharacterDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTest.swift; sourceTree = "<group>"; };
+		8D8EE8DA21E9421500DF95FF /* MainCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTest.swift; sourceTree = "<group>"; };
+		8D8EE8DC21E9422400DF95FF /* MockNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigator.swift; sourceTree = "<group>"; };
 		8DFA30AC21BA30F4005DD7ED /* UIScrollView+reachBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachBottom.swift"; sourceTree = "<group>"; };
 		8DFA30AE21BA372D005DD7ED /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8DFA30B021BA3741005DD7ED /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 			children = (
 				8D5B5BED21B7FFD300D32D78 /* MockURLProtocol.swift */,
 				8D5B5BF121B8943B00D32D78 /* XCTestCase.swift */,
+				8D72E65021BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift */,
+				8D8EE8DC21E9422400DF95FF /* MockNavigator.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,9 +302,9 @@
 				8D29396921B6E08F0072D6CB /* MarvelApiTest.swift */,
 				8D5B5BEB21B7FF5500D32D78 /* MarvelApiProviderTest.swift */,
 				8D5B5BF321B8982B00D32D78 /* ListCharactersViewModelTest.swift */,
-				8D72E65021BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift */,
 				8D72E65421BAA3D900627E5F /* CharacterDetailViewModelTest.swift */,
 				8D72E64A21BA50FA00627E5F /* ImageTest.swift */,
+				8D8EE8DA21E9421500DF95FF /* MainCoordinatorTest.swift */,
 			);
 			path = TestCases;
 			sourceTree = "<group>";
@@ -520,9 +526,11 @@
 				8D5B5BF221B8943B00D32D78 /* XCTestCase.swift in Sources */,
 				8D5B5BEC21B7FF5500D32D78 /* MarvelApiProviderTest.swift in Sources */,
 				8D29396A21B6E08F0072D6CB /* MarvelApiTest.swift in Sources */,
+				8D8EE8DD21E9422400DF95FF /* MockNavigator.swift in Sources */,
 				8D72E64B21BA50FA00627E5F /* ImageTest.swift in Sources */,
 				8D72E65521BAA3D900627E5F /* CharacterDetailViewModelTest.swift in Sources */,
 				8D72E65121BA9F8B00627E5F /* MockListCharacterViewModelDelegate.swift in Sources */,
+				8D8EE8DB21E9421500DF95FF /* MainCoordinatorTest.swift in Sources */,
 				8D5B5BF421B8982B00D32D78 /* ListCharactersViewModelTest.swift in Sources */,
 				8D5B5BEE21B7FFD300D32D78 /* MockURLProtocol.swift in Sources */,
 			);
