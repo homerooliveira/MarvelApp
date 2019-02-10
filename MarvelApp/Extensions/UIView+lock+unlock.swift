@@ -11,7 +11,7 @@ import UIKit
 private let activityTag = 1234
 
 extension UIView {
-    func lock(style:  UIActivityIndicatorView.Style = .whiteLarge) {
+    func lock(style: UIActivityIndicatorView.Style = .whiteLarge) {
         guard viewWithTag(activityTag) == nil else { return }
         
         let activity = UIActivityIndicatorView(style: style)

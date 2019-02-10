@@ -14,7 +14,7 @@ extension String {
         return NSString(string: self)
                     .boundingRect(with: size,
                                   options: [.usesFontLeading, .usesLineFragmentOrigin],
-                                  attributes: [.font : font],
+                                  attributes: [.font: font],
                                   context: nil)
                     .height
     }

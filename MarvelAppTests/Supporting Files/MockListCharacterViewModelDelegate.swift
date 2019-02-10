@@ -1,4 +1,3 @@
-
 //
 //  MockListCharacterViewModelDelegate.swift
 //  MarvelAppTests

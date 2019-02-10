@@ -22,7 +22,6 @@ final class ComicCell: UICollectionViewCell {
         comicImageView.layer.cornerRadius = 6
         comicImageView.clipsToBounds = true
     }
-
     
     private func updateUI() {
         comicImageView.load(image: viewModel.comic.thumbnail)

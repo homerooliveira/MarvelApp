@@ -316,6 +316,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D29395F21B6A1320072D6CB /* Build configuration list for PBXNativeTarget "MarvelApp" */;
 			buildPhases = (
+				8DBDD3E92210E3FA001206F2 /* SwiftLint */,
 				ACDFCF239B6E656E6239CA29 /* [CP] Check Pods Manifest.lock */,
 				8D29393E21B6A1300072D6CB /* Sources */,
 				8D29393F21B6A1300072D6CB /* Frameworks */,
@@ -423,7 +424,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
@@ -436,8 +437,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8DBDD3E92210E3FA001206F2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		ACDFCF239B6E656E6239CA29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

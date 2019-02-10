@@ -31,7 +31,7 @@ final class MarvelApiProvider: MarvelApiProviderType {
     }
     
     private func request<T: Decodable>(for url: URL, completion: @escaping (Result<T>) -> Void) {
-        session.dataTask(with: url) { (data, urlResponse, error) in
+        session.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
                 let newError = error == nil ? ApiError.invalidData : error!
                 completion(.failure(newError))
