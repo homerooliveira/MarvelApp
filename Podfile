@@ -8,6 +8,7 @@ target 'MarvelApp' do
   # Pods for MarvelApp
   pod 'CryptoSwift'
   pod 'Kingfisher', '~> 4.0'
+  pod 'SwiftLint'
 
   target 'MarvelAppTests' do
     inherit! :search_paths

@@ -57,7 +57,6 @@ final class MarvelApiProviderTest: XCTestCase {
         
         wait(for: [expectation], timeout: 1)
     }
-
     
     private func mockDataWrapper() -> DataWrapper<MarvelApp.Character> {
         let image = Image(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", extension: "jpg")
