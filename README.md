@@ -18,7 +18,7 @@ pod install
 ## To Do
 - [ ] Add iOSSnapshotTestCase to avoid regression.
 - [ ] Add CircleCI to automate the development process.
-- [ ] Add SwiftLint to enforce code style and conventions.
+- [x] Add SwiftLint to enforce code style and conventions.
 - [x] Add coordinator to manage the flow.
 - [x] Add Kingfisher to download and cache images.
 
