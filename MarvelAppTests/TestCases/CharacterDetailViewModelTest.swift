@@ -36,7 +36,7 @@ final class CharacterDetailTest: XCTestCase {
         
         viewModel.fetchComics { [weak self] (state) in
             guard let self = self else {
-                XCTFail()
+                XCTFail("shold have self reference")
                 return
             }
             let expectedValue = ChangeState.initial

@@ -28,6 +28,7 @@ final class ListCharactersViewController: UIViewController {
         title = "Characters"
     }
     
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -62,8 +63,6 @@ final class ListCharactersViewController: UIViewController {
             collectionView.reloadData()
         case .inserted(let indexPaths):
             collectionView.insertItems(at: indexPaths)
-        case .error(let error):
-            print(error)
         case .loading:
             view.lock()
         default:
@@ -77,13 +76,16 @@ extension ListCharactersViewController: UICollectionViewDataSource {
         return viewModel.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CharacterCell = collectionView.dequeueReusableCell(cellForItemAt: indexPath)
         cell.viewModel = viewModel[indexPath.row]
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case footerKind:
             let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: footerKind,
@@ -103,7 +105,9 @@ extension ListCharactersViewController: UICollectionViewDelegate {
 }
 
 extension ListCharactersViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  30
         let collectionViewSize = collectionView.frame.size.width - padding
         let percentageOfWidth: CGFloat = 0.50

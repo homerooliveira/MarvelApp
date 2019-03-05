@@ -41,19 +41,19 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = ListCharactersViewModel(marvelApiProvider: marvelApiProvider)
-        vm.delegate = self
-        let vc = ListCharactersViewController(viewModel: vm)
-        navigationController.pushViewController(vc, animated: false)
+        let viewModel = ListCharactersViewModel(marvelApiProvider: marvelApiProvider)
+        viewModel.delegate = self
+        let viewController = ListCharactersViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: false)
     }
 }
 
 extension MainCoordinator: ListCharactersViewModelDelegate {
     func didSelected(character: Character) {
 
-        let vm = CharacterDetailViewModel(character: character,
+        let viewModel = CharacterDetailViewModel(character: character,
                                           marvelApiProvider: marvelApiProvider)
-        let vc = CharacterDetailViewController(viewModel: vm)
-        navigationController.pushViewController(vc, animated: true)
+        let viewController = CharacterDetailViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
