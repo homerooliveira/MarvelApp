@@ -8,4 +8,4 @@ script:
   - xcodebuild -scheme MarvelApp -workspace MarvelApp.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test 
 cache:
   directories:
-  - $HOME/.cocoapods/
+    - $HOME/.cocoapods/
