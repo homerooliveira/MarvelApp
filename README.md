@@ -1,5 +1,5 @@
 # MarvelApp
-![](https://img.shields.io/badge/coverage-55.2%25-green.svg)
+[![Build Status](https://travis-ci.org/homerooliveira/MarvelApp.svg?branch=dev)](https://travis-ci.org/homerooliveira/MarvelApp)![](https://img.shields.io/badge/coverage-55.2%25-green.svg)
 
  As the main challenge was to create a fully working app in a short period of time, I decided to use the MVVM architecture to keep the view controllers concise and to make the testing easier. Also, the coordinator pattern was used to control the flow of the application.
  
