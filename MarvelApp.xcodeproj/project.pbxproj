@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,7 @@
 		8D72E65521BAA3D900627E5F /* CharacterDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E65421BAA3D900627E5F /* CharacterDetailViewModelTest.swift */; };
 		8D8EE8DB21E9421500DF95FF /* MainCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE8DA21E9421500DF95FF /* MainCoordinatorTest.swift */; };
 		8D8EE8DD21E9422400DF95FF /* MockNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE8DC21E9422400DF95FF /* MockNavigator.swift */; };
+		8DDA7FED23A56B1F00B670D5 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA7FEC23A56B1F00B670D5 /* String+md5.swift */; };
 		8DFA30AD21BA30F4005DD7ED /* UIScrollView+reachBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30AC21BA30F4005DD7ED /* UIScrollView+reachBottom.swift */; };
 		8DFA30AF21BA372D005DD7ED /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30AE21BA372D005DD7ED /* Character.swift */; };
 		8DFA30B121BA3741005DD7ED /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA30B021BA3741005DD7ED /* Image.swift */; };
@@ -116,6 +117,7 @@
 		8D72E65421BAA3D900627E5F /* CharacterDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTest.swift; sourceTree = "<group>"; };
 		8D8EE8DA21E9421500DF95FF /* MainCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTest.swift; sourceTree = "<group>"; };
 		8D8EE8DC21E9422400DF95FF /* MockNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigator.swift; sourceTree = "<group>"; };
+		8DDA7FEC23A56B1F00B670D5 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		8DFA30AC21BA30F4005DD7ED /* UIScrollView+reachBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachBottom.swift"; sourceTree = "<group>"; };
 		8DFA30AE21BA372D005DD7ED /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8DFA30B021BA3741005DD7ED /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				8D3E137921BA2CE500CEBFE7 /* String+calculateHeight.swift */,
 				8DFA30AC21BA30F4005DD7ED /* UIScrollView+reachBottom.swift */,
 				8D72E64821BA4CC600627E5F /* UIImageView+loadImage.swift */,
+				8DDA7FEC23A56B1F00B670D5 /* String+md5.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,22 +425,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8DBDD3E92210E3FA001206F2 /* SwiftLint */ = {
@@ -514,6 +510,7 @@
 				8D29396621B6A1BE0072D6CB /* MarvelApi.swift in Sources */,
 				8DFA30B121BA3741005DD7ED /* Image.swift in Sources */,
 				8D72E64521BA43BF00627E5F /* Paginator.swift in Sources */,
+				8DDA7FED23A56B1F00B670D5 /* String+md5.swift in Sources */,
 				8D5B5BF021B803DA00D32D78 /* Result.swift in Sources */,
 				8D3E137121B98DE800CEBFE7 /* ComicCell.swift in Sources */,
 				8D5B5BF621B89FAD00D32D78 /* MarvelApiProviderType.swift in Sources */,

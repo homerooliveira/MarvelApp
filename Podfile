@@ -6,7 +6,6 @@ target 'MarvelApp' do
   use_frameworks!
 
   # Pods for MarvelApp
-  pod 'CryptoSwift'
   pod 'Kingfisher', '~> 4.0'
   pod 'SwiftLint'
 

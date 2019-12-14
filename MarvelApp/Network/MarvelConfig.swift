@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CryptoSwift
 
 struct MarvelConfig {
     static let privateKey = "bbf4935a33e5c40fe1112d56c8b318b1e0c709d4"

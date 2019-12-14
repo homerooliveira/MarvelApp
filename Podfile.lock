@@ -1,24 +1,20 @@
 PODS:
-  - CryptoSwift (0.13.0)
   - Kingfisher (4.10.1)
   - SwiftLint (0.30.1)
 
 DEPENDENCIES:
-  - CryptoSwift
   - Kingfisher (~> 4.0)
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CryptoSwift
+  trunk:
     - Kingfisher
     - SwiftLint
 
 SPEC CHECKSUMS:
-  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 79c5efe420b46750f6c1c797be780b0b7847fd92
+PODFILE CHECKSUM: 6e6a9ec361d423dda58b84ff6d77bd8e74fb1961
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
